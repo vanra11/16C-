@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cstring>
+
+using namespace std;
+
+class Solution {
+public:
+    static const int MOD = 1000000007;
+
+    int subsequenceCount(string s, string t) {
+        int sLen = s.length();
+        int tLen = t.length();
+        vector<vector<int>> dp(sLen + 1, vector<int>(tLen + 1, -1));
+        return solve(s, t, dp, 0, 0);
+    }
+
+private:
+    int solve(const string &s, const string &t, vector<vector<int>> &dp, int sPos, int tPos) {
+        if (tPos == t.length()) {
+            return 1;
+        }
+        if (sPos == s.length()) {
+            return 0;
+        }
+        if (dp[sPos][tPos] != -1) {
+            return dp[sPos][tPos];
+        }
+        if (s[sPos] == t[tPos]) {
+            dp[sPos][tPos] = (solve(s, t, dp, sPos + 1, tPos + 1) + solve(s, t, dp, sPos + 1, tPos)) % MOD;
+        } else {
+            dp[sPos][tPos] = solve(s, t, dp, sPos + 1, tPos) % MOD;
+        }
+        return dp[sPos][tPos];
+    }
+};
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        string s, t;
+        cin >> s >> t;
+        Solution ob;
+        cout << ob.subsequenceCount(s, t) << endl;
+    }
+    return 0;
+}
