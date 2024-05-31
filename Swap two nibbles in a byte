@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+class Solution {
+public:
+    int swapNibbles(int n) {
+        return ((n & 0x0F) << 4 | (n & 0xF0) >> 4);
+    }
+};
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        Solution ob;
+        cout << ob.swapNibbles(n) << endl;
+    }
+    return 0;
+}
