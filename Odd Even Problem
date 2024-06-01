@@ -1,0 +1,51 @@
+#include <iostream>
+#include <unordered_map>
+#include <string>
+
+using namespace std;
+
+class Solution {
+public:
+    string oddEven(string s) {
+        unordered_map<char, int> freqMap;
+        for (char c : s) {
+            freqMap[c]++;
+        }
+        
+        int x = 0;
+        int y = 0;
+
+        for (auto& entry : freqMap) {
+            char ch = entry.first;
+            int freq = entry.second;
+            int pos = ch - 'a' + 1;  // Position of the character in the alphabet
+
+            if (freq % 2 == 0 && pos % 2 == 0) {
+                x++;
+            } else if (freq % 2 != 0 && pos % 2 != 0) {
+                y++;
+            }
+        }
+
+        if ((x + y) % 2 == 0) {
+            return "EVEN";
+        } else {
+            return "ODD";
+        }
+    }
+};
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        string s;
+        cin >> s;
+
+        Solution obj;
+        string res = obj.oddEven(s);
+
+        cout << res << endl;
+    }
+    return 0;
+}
