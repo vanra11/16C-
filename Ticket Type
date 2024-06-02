@@ -1,0 +1,12 @@
+#include <iostream>
+
+int main() {
+    int age;
+    std::cin >> age;
+    if (age < 15) {
+        std::cout << "Child Ticket" << std::endl;
+    } else {
+        std::cout << "Adult Ticket" << std::endl;
+    }
+    return 0;
+}
