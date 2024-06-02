@@ -1,0 +1,16 @@
+import java.util.*;
+import java.io.*;
+class Luckywinner {
+	public static void main(String [] args) {
+		int number;
+		Scanner sc = new Scanner(System.in);
+		number = sc.nextInt();
+		int lastdigit = number%10;
+		if(lastdigit == 3 || lastdigit == 8) {
+			System.out.println("Lucky Winner");
+		}
+		else {
+			System.out.println("Not a Lucky Winner");
+		}
+	}
+}
