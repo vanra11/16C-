@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int r, c;
+    cin >> r >> c;
+    int m[r][c];
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            cin >> m[i][j];
+        }
+    }
+    for (int i = 0; i < r; i++) {
+        int rs = 0;
+        for (int j = 0; j < c; j++) {
+            rs += m[i][j];
+        }
+        cout << "Sum of the row " << i << " = " << rs << endl;
+    }
+    for (int j = 0; j < c; j++) {
+        int cs = 0;
+        for (int i = 0; i < r; i++) {
+            cs += m[i][j];
+        }
+        cout << "Sum of the column " << j << " = " << cs << endl;
+    }
+    return 0;
+}
