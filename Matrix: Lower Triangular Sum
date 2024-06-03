@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int ls = 0;
+    int r, c;
+    cin >> r >> c;
+    int m[r][c];
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            cin >> m[i][j];
+            if (j <= i) {
+                ls += m[i][j];
+            }
+        }
+    }
+    cout << ls << endl;
+    return 0;
+}
