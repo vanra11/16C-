@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int r, c;
+    cin >> r >> c;
+    if (r != c) {
+        cout << "Error: The matrix is not a square" << endl;
+        return 1;
+    }
+    int n = r;
+    int matrix[n][n];
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            cin >> matrix[i][j];
+        }
+    }
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += matrix[i][i];
+    }
+    cout << sum << endl;
+    return 0;
+}
