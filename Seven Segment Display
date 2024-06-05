@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cin >> num;
+    int d = 0;
+    if (num == 0) {
+        d = 1;
+    }
+    while (num != 0) {
+        num /= 10;
+        d += 1;
+    }
+    cout << d << endl;
+    return 0;
+}
