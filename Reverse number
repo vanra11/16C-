@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cin >> num;
+    int r = 0;
+    int t = num;
+    while (num > 0) {
+        t = num % 10;
+        r = r * 10 + t;
+        num /= 10;
+    }
+    cout << r << endl;
+    return 0;
+}
